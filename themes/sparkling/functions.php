@@ -448,3 +448,40 @@ function get_layout_class () {
 }
 
 endif;
+
+
+/**
+ * returns Site Code (1 = Estonian, 2 = English)
+ */
+
+const LANGUAGE_ESTONIAN = 1;
+const LANGUAGE_ENGLISH = 2;
+function get_site_language(){
+    if ( is_multisite() ){
+        $current_site = get_blog_details();
+        return $current_site->blog_id;
+    } 
+    return null;
+}
+
+function fig_get_estonian_translations(){
+    $estonianTranslations = array(
+        'Description' => 'Kirjeldus',
+        'Back' => 'Tagasi'
+    );
+    return $estonianTranslations;
+}
+
+/**
+ * @param $text
+ * @return mixed
+ */
+function fig_translate($text){
+    $lang = get_site_language();
+    if($lang == LANGUAGE_ESTONIAN){
+        $translations = fig_get_estonian_translations();
+        if ($translations[$text]) return $translations[$text];
+        return $text;
+    }
+    return $text;
+}
