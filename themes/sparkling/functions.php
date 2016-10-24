@@ -470,7 +470,8 @@ function get_site_language(){
 function fig_get_estonian_translations(){
     $estonianTranslations = array(
         'Description' => 'Kirjeldus',
-        'Back' => 'Tagasi'
+        'Back' => 'Tagasi',
+        'Search' => 'Otsi'
     );
     return $estonianTranslations;
 }
