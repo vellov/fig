@@ -41,7 +41,7 @@
 			<?php if ( is_search() ) : // Only display Excerpts for Search ?>
 			<div class="entry-summary">
 				<?php the_excerpt(); ?>
-				<p><a class="btn btn-default read-more" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'sparkling' ); ?></a></p>
+				<p><a class="btn btn-default read-more" href="<?php the_permalink(); ?>"><?php esc_html_e( fig_translate("Read More"), 'sparkling' ); ?></a></p>
 			</div><!-- .entry-summary -->
 			<?php else : ?>
 			<div class="entry-content">

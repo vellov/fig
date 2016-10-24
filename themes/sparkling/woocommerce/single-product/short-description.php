@@ -33,15 +33,6 @@ if ( ! $post->post_excerpt ) {
 
 <div>
 
-	<?php
-	$breadcrumbs = new WC_Breadcrumb();
 
-	if ( ! empty( $args['home'] ) ) {
-		$breadcrumbs->add_crumb( $args['home'], apply_filters( 'woocommerce_breadcrumb_home_url', home_url() ) );
-	}
-
-	$breadcrumb = $breadcrumbs->generate();
-	$previousPageUrl = $breadcrumb[count($breadcrumb)-2][1];
-	?>
-	<a href="<?php echo esc_url( $previousPageUrl )?>" class="btn btn-danger btn-lg"><?php echo fig_translate('Back')?></a>
+	<button onclick="goBack()" class="btn btn-danger text-capitalize"><?php echo fig_translate('Back')?></button>
 </div>

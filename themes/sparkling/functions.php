@@ -472,6 +472,8 @@ function fig_get_estonian_translations(){
         'Description' => 'Kirjeldus',
         'Back' => 'Tagasi',
         'Search' => 'Otsi',
+        'Search Results for' => 'Otsingu tulemused',
+        'Read More' => 'Vaata lähemalt',
         'Your name' => 'Teie nimi',
         'Your email' => 'Teie email',
         'Subject' => 'Teema',

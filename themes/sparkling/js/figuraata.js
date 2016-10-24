@@ -16,7 +16,12 @@ jQuery(document).ready(function($) {
         setContentBottomPaddingByFooterHeight();
     });
 
+
 });
+
+function goBack(){
+    window.history.back();
+}
 
 var ContactForm = {
     init: function(url){
