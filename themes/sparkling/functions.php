@@ -492,6 +492,22 @@ function fig_translate($text){
 
 include( get_template_directory() . '/shortcode.php' );
 
+
+/**
+ * Contact form and mail settings
+ */
+/** changing default wordpres email settings */
+
+add_filter('wp_mail_from', 'new_mail_from');
+add_filter('wp_mail_from_name', 'new_mail_from_name');
+
+function new_mail_from($old) {
+    return 'figuraata@figuraata.com';
+}
+function new_mail_from_name($old) {
+    return 'Figuraata OÜ';
+}
+
 add_action( 'wp_ajax_contact_form_callback', 'contact_form_callback' );
 add_action( 'wp_ajax_nopriv_contact_form_callback', 'contact_form_callback' );
 function generate_form_response($type, $message){
