@@ -489,3 +489,59 @@ function fig_translate($text){
     }
     return $text;
 }
+
+include( get_template_directory() . '/shortcode.php' );
+
+add_action( 'wp_ajax_contact_form_callback', 'contact_form_callback' );
+add_action( 'wp_ajax_nopriv_contact_form_callback', 'contact_form_callback' );
+function generate_form_response($type, $message){
+    header('Content-Type: application/json; charset=UTF-8');
+    $results = array(
+        'error' => $type == 'error',
+        'msg' => $message
+    );
+    return json_encode($results);
+}
+function contact_form_callback() {
+    $form_data = $_POST["data"];
+
+    $name = $form_data["name"];
+    $email = $form_data["email"];
+    $subject = $form_data["subject"];
+    $message = $form_data["message"];
+
+    $content = "Teile saabus kiri lehelt www.figuraata.com".'<br/> Nimi:'.$name.'<br/>'."\n";
+    $content .= $message;
+
+    //response messages
+    $missing_content = "Please supply all information.";
+    $email_invalid   = "Email Address Invalid.";
+    $message_unsent  = "Message was not sent. Try Again.";
+
+    //php mailer variables
+    $to = 'vello.vaherpuu@hotmail.com';
+    $subject = 'Figuraata.com: ' . $subject;
+    $headers = 'From: '. $email . "\r\n" .
+        'Reply-To: ' . $email . "\r\n";
+
+
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        wp_die(generate_form_response('error', $email_invalid));
+    }
+    else
+    {
+        if(empty($name) || empty($email)){
+            wp_die(generate_form_response('error', $missing_content));
+        }
+        else
+        {
+            $sent = wp_mail($to, $subject, strip_tags($message), $headers);
+            if($sent) {
+                wp_die(generate_form_response('success', 'Sent'));
+            }
+            else {
+                wp_die(generate_form_response('error', $message_unsent));
+            }
+        }
+    }
+}

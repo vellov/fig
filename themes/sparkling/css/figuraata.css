@@ -1,3 +1,7 @@
 p + ul {
     margin-top: -10px;
 }
+
+.required-field {
+    color: #e53910;
+}
