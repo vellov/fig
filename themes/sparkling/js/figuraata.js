@@ -20,46 +20,13 @@ jQuery(document).ready(function($) {
 
 var ContactForm = {
     init: function(url){
-      /*  jQuery("#contact_form_2").on("submit",function(e){
-            var name = jQuery("#contact_form_name");
-            var email = jQuery("#contact_form_email");
-            var subject = jQuery("#contact_form_subject");
-            var message = jQuery("#contact_form_message");
-
-            jQuery.ajax({
-                url: url,
-                type: "post",
-                data: {
-                    "action": "agreement_modal_cb",
-                    "data": {
-                        name: name,
-                        email: email,
-                        subject: subject,
-                        message: message
-                    }
-                },
-                success: function(data){
-                    console.log(data);
-                    if(data.error){
-                        //    $("#error-msg").show();
-                        //    $("#error-msg").html(data.msg);
-                    } else {
-
-                        //   $("#agreement_form").addClass('hidden');
-                        //  $("#agreement_success").removeClass('hidden');
-                        // $("#agreement_email_2").html(email);
-                    }
-                }
-
-            });
-            e.stopPropagation();
-            e.preventDefault();
-        });*/
+        jQuery("#contact_form_error").hide();
         jQuery("#contact_form_submit_button").on('click', function(){
             var name = jQuery("#contact_form_name").val();
             var email = jQuery("#contact_form_email").val();
             var subject = jQuery("#contact_form_subject").val();
             var message = jQuery("#contact_form_message").val();
+            jQuery("#contact_form :input").prop("disabled", true);
 
             jQuery.ajax({
                 url: url,
@@ -74,21 +41,26 @@ var ContactForm = {
                     }
                 },
                 success: function(data){
-                    console.log(data);
+                    jQuery("#contact_form :input").prop("disabled", false);
                     if(data.error){
-                        //    $("#error-msg").show();
-                        //    $("#error-msg").html(data.msg);
+                        jQuery("#contact_form_success").hide();
+                        jQuery("#contact_form_error").show();
+                        jQuery("#contact_form_error").html(data.msg);
                     } else {
-
-                        //   $("#agreement_form").addClass('hidden');
-                        //  $("#agreement_success").removeClass('hidden');
-                        // $("#agreement_email_2").html(email);
+                        jQuery("#contact_form_error").hide();
+                        jQuery("#contact_form_success").show();
+                        jQuery("#contact_form_success").html(data.msg);
+                        resetContactForm()
                     }
                 }
-
             });
-        })
+        });
 
-
+        function resetContactForm() {
+            jQuery("#contact_form_name").val("");
+            jQuery("#contact_form_email").val("");
+            jQuery("#contact_form_subject").val("");
+            jQuery("#contact_form_message").val("");
+        }
     }
 };

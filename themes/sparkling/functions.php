@@ -471,7 +471,16 @@ function fig_get_estonian_translations(){
     $estonianTranslations = array(
         'Description' => 'Kirjeldus',
         'Back' => 'Tagasi',
-        'Search' => 'Otsi'
+        'Search' => 'Otsi',
+        'Your name' => 'Teie nimi',
+        'Your email' => 'Teie email',
+        'Subject' => 'Teema',
+        'Message' => 'Sõnum',
+        'Send' => 'Saada',
+        'Please supply all information!' => 'Palun täitke nõutud väljad!',
+        'Email Address Invalid!' => 'Vigane emaili aadress!',
+        'Message was not sent! Try Again.' => 'Kirja saatmine ebaõnnestus, proovige palun uuesti!',
+        'Message sent!' => 'Kiri saadetud!'
     );
     return $estonianTranslations;
 }
@@ -503,7 +512,7 @@ function generate_form_response($type, $message){
     header('Content-Type: application/json; charset=UTF-8');
     $results = array(
         'error' => $type == 'error',
-        'msg' => $message
+        'msg' => fig_translate($message)
     );
     return json_encode($results);
 }
@@ -515,38 +524,35 @@ function contact_form_callback() {
     $subject = $form_data["subject"];
     $message = $form_data["message"];
 
-    $content = "Teile saabus kiri lehelt www.figuraata.com".'<br/> Nimi:'.$name.'<br/>'."\n";
+    $content = "www.figuraata.com kaudu saadeti teile kiri: "."\n";
     $content .= $message;
 
     //response messages
-    $missing_content = "Please supply all information.";
-    $email_invalid   = "Email Address Invalid.";
-    $message_unsent  = "Message was not sent. Try Again.";
+    $missing_content = "Please supply all information!";
+    $email_invalid   = "Email Address Invalid!";
+    $message_unsent  = "Message was not sent! Try Again.";
 
     //php mailer variables
     $to = 'vello.vaherpuu@hotmail.com';
-    $subject = 'Figuraata.com: ' . $subject;
-    $headers = 'From: '. $email . "\r\n" .
+    $headers = 'From: '. $name . ' <' . $email . '>' . "\r\n" .
         'Reply-To: ' . $email . "\r\n";
 
+
+    if(empty($name) || empty($email)){
+        wp_die(generate_form_response('error', $missing_content));
+    }
 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         wp_die(generate_form_response('error', $email_invalid));
     }
     else
     {
-        if(empty($name) || empty($email)){
-            wp_die(generate_form_response('error', $missing_content));
+        $sent = wp_mail($to, $subject, strip_tags($content), $headers);
+        if($sent) {
+            wp_die(generate_form_response('success', 'Message sent!'));
         }
-        else
-        {
-            $sent = wp_mail($to, $subject, strip_tags($message), $headers);
-            if($sent) {
-                wp_die(generate_form_response('success', 'Sent'));
-            }
-            else {
-                wp_die(generate_form_response('error', $message_unsent));
-            }
+        else {
+            wp_die(generate_form_response('error', $message_unsent));
         }
     }
 }
