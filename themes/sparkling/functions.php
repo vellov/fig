@@ -228,6 +228,9 @@ function sparkling_scripts() {
   // Add Bootstrap default JS
   wp_enqueue_script('sparkling-bootstrapjs', get_template_directory_uri().'/inc/js/bootstrap.min.js', array('jquery') );
 
+  // Add custom Js
+  wp_enqueue_script('figuraata', get_template_directory_uri().'/js/figuraata.js', array('jquery'));
+
   if( ( is_home() || is_front_page() ) && of_get_option('sparkling_slider_checkbox') == 1 ) {
     // Add slider JS only if is front page ans slider is enabled
     wp_enqueue_script( 'flexslider-js', get_template_directory_uri() . '/inc/js/flexslider.min.js', array('jquery'), '20140222', true );
