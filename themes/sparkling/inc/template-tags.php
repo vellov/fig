@@ -44,17 +44,22 @@ function sparkling_posted_on() {
 		esc_attr( get_the_modified_date( 'c' ) ),
 		esc_html( get_the_modified_date() )
 	);
-
-	printf( '<span class="posted-on"><i class="fa fa-calendar"></i> %1$s</span><span class="byline"> <i class="fa fa-user"></i> %2$s</span>',
+	//WITH AUTHOR
+	/*printf( '<span class="posted-on"><i class="fa fa-calendar"></i> %1$s</span><span class="byline"> <i class="fa fa-user"></i> %2$s</span>',
 		sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
 			esc_url( get_permalink() ),
 			$time_string
 		)
-		//Author name on post
 		/*sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_html( get_the_author() )
-		)*/
+		)
+	);*/
+	printf( '<span class="posted-on"><i class="fa fa-calendar"></i> %1$s</span>',
+		sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
+			esc_url( get_permalink() ),
+			$time_string
+		)
 	);
 }
 endif;
