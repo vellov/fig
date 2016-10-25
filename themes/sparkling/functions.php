@@ -489,7 +489,9 @@ function fig_get_estonian_translations(){
         'Recent Posts' => 'Hiljutised postitused',
         'Oops! That page can not be found.' => 'Lehte ei leitud',
         'Categories' => 'Kategooriad',
-        'Category' => 'Kategooria'
+        'Category' => 'Kategooria',
+        'Tag' => 'Silt',
+        'Tags' => 'Sildid'
     );
     return $estonianTranslations;
 }
