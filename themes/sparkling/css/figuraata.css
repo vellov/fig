@@ -5,3 +5,11 @@ p + ul {
 .required-field {
     color: #e53910;
 }
+
+.widget_wpcom_social_media_icons_widget .genericon {
+    font-size: 24px;
+}
+.widget_wpcom_social_media_icons_widget .genericon .genericon-facebook{
+    font-size: 24px;
+    color: #3b5998;
+}
