@@ -32,7 +32,5 @@ if ( ! $post->post_excerpt ) {
 </div>
 
 <div>
-
-
 	<button onclick="goBack()" class="btn btn-danger text-capitalize"><?php echo fig_translate('Back')?></button>
 </div>

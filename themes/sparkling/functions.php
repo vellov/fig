@@ -487,7 +487,9 @@ function fig_get_estonian_translations(){
         'Sorry, but nothing matched your search terms. Please try again with some different keywords.' => 'Otsingutulemused puuduvad',
         'It seems we can not find what you are looking for. Perhaps searching can help.' => 'Tundub, et me ei leidnud, mida te otsisite.',
         'Recent Posts' => 'Hiljutised postitused',
-        'Oops! That page can not be found.' => 'Lehte ei leitud'
+        'Oops! That page can not be found.' => 'Lehte ei leitud',
+        'Categories' => 'Kategooriad',
+        'Category' => 'Kategooria'
     );
     return $estonianTranslations;
 }

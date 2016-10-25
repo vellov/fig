@@ -21,3 +21,6 @@ p + ul {
 #contact_form textarea {
     resize: none;
 }
+.mark, mark {
+    background: none;
+}
