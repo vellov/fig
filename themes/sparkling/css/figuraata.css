@@ -17,3 +17,7 @@ p + ul {
 #secondary .widget {
     margin-bottom: 25px !important;
 }
+
+#contact_form textarea {
+    resize: none;
+}
