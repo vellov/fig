@@ -12,17 +12,17 @@ get_header(); ?>
 
 				<section class="error-404 not-found">
 					<header class="page-header">
-						<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'sparkling' ); ?></h1>
+						<h1 class="page-title"><?php esc_html_e( fig_translate('Oops! That page can not be found.'), 'sparkling' ); ?></h1>
 					</header><!-- .page-header -->
 
 					<div class="page-content">
-						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'sparkling' ); ?></p>
+						<p><?php esc_html_e( fig_translate('It seems we can not find what you are looking for. Perhaps searching can help.'), 'sparkling' ); ?></p>
 
 						<?php get_search_form(); ?>
 
 						<div class="row">
 							<div class="col-md-6 not-found-widget">
-								<?php the_widget( 'WP_Widget_Recent_Posts', 'title='.esc_html__( 'Recent Posts', 'sparkling' ) ); ?>
+								<?php the_widget( 'WP_Widget_Recent_Posts', 'title='.esc_html__( fig_translate('Recent Posts'), 'sparkling' ) ); ?>
 							</div>
 
 							<div class="col-md-6 not-found-widget">
@@ -44,21 +44,6 @@ get_header(); ?>
 								<?php endif; ?>
 							</div>
 						</div>
-
-						<div class="row">
-							<div class="col-md-6 not-found-widget">
-								<?php
-								/* translators: %1$s: smiley */
-								$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'sparkling' ), convert_smilies( ':)' ) ) . '</p>';
-								the_widget( 'WP_Widget_Archives', 'dropdown=1&title='.esc_html__( 'Archives', 'sparkling' ), "after_title=</h2>$archive_content" );
-								?>
-							</div>
-
-							<div class="col-md-6 not-found-widget">
-								<?php the_widget( 'WP_Widget_Tag_Cloud', 'title='.esc_html__( 'Tags', 'sparkling' ) ); ?>
-							</div>
-						</div>
-
 
 				</section><!-- .error-404 -->
 			</div>

@@ -472,7 +472,7 @@ function fig_get_estonian_translations(){
         'Description' => 'Kirjeldus',
         'Back' => 'Tagasi',
         'Search' => 'Otsi',
-        'Search Results for' => 'Otsingu tulemused',
+        'Search Results for' => 'Otsingutulemused sõnale',
         'Read More' => 'Vaata lähemalt',
         'Your name' => 'Teie nimi',
         'Your email' => 'Teie email',
@@ -482,7 +482,12 @@ function fig_get_estonian_translations(){
         'Please supply all information!' => 'Palun täitke nõutud väljad!',
         'Email Address Invalid!' => 'Vigane emaili aadress!',
         'Message was not sent! Try Again.' => 'Kirja saatmine ebaõnnestus, proovige palun uuesti!',
-        'Message sent!' => 'Kiri saadetud!'
+        'Message sent!' => 'Kiri saadetud!',
+        'Nothing Found' => 'Kahjuks ei leitud midagi',
+        'Sorry, but nothing matched your search terms. Please try again with some different keywords.' => 'Otsingutulemused puuduvad',
+        'It seems we can not find what you are looking for. Perhaps searching can help.' => 'Tundub, et me ei leidnud, mida te otsisite.',
+        'Recent Posts' => 'Hiljutised postitused',
+        'Oops! That page can not be found.' => 'Lehte ei leitud'
     );
     return $estonianTranslations;
 }

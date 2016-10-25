@@ -49,8 +49,8 @@ function sparkling_posted_on() {
 		sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
 			esc_url( get_permalink() ),
 			$time_string
-		)
-		/*sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
+		),
+		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_html( get_the_author() )
 		)
