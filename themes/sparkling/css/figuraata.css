@@ -24,3 +24,7 @@ p + ul {
 .mark, mark {
     background: none;
 }
+
+.product_meta {
+    margin-top: 10px;
+}
