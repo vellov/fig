@@ -28,3 +28,7 @@ p + ul {
 .product_meta {
     margin-top: 10px;
 }
+
+.clearfix {
+  clear:both;
+}

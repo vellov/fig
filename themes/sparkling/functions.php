@@ -491,7 +491,8 @@ function fig_get_estonian_translations(){
         'Categories' => 'Kategooriad',
         'Category' => 'Kategooria',
         'Tag' => 'Silt',
-        'Tags' => 'Sildid'
+        'Tags' => 'Sildid',
+        'Related Products' => 'Seotud tooted'
     );
     return $estonianTranslations;
 }
