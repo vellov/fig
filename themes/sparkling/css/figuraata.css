@@ -36,3 +36,7 @@ p + ul {
 .woocommerce ul.products li.product h3 {
   text-align: center;
 }
+
+.wp-caption {
+  border: none;
+}
