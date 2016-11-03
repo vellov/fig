@@ -545,7 +545,11 @@ function contact_form_callback() {
     $message_unsent  = "Message was not sent! Try Again.";
 
     //php mailer variables
-    $to = 'vello.vaherpuu@hotmail.com';
+    $to = array(
+      'vello.vaherpuu@hotmail.com',
+      'viljarvaherpuu@hotmail.com',
+      'marge.vaherpuu@hotmail.com'
+      );
     $headers = 'From: '. $name . ' <' . $email . '>' . "\r\n" .
         'Reply-To: ' . $email . "\r\n";
 
