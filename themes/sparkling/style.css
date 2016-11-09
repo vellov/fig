@@ -159,7 +159,7 @@ input[type="password"],
 input[type="search"],
 textarea {
   color: #666;
-  border: 1px solid #E8E8E8;
+  border: 1px solid #E8E8E8 !important;
   border-radius: 3px;
 }
 input[type="text"]:focus,
