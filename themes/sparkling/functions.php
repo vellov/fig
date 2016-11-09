@@ -572,3 +572,38 @@ function contact_form_callback() {
         }
     }
 }
+
+
+/*
+ * Hook in on activation
+ *
+ */
+add_action( 'init', 'fig_woocommerce_image_dimensions', 1 );
+
+/**
+ * Define image sizes
+ */
+function fig_woocommerce_image_dimensions() {
+  $catalog = array(
+    'width' 	=> '300',	// px
+    'height'	=> '200',	// px
+    'crop'		=> 1 		// true
+  );
+
+  $single = array(
+    'width' 	=> '1200',	// px
+    'height'	=> '800',	// px
+    'crop'		=> 1 		// true
+  );
+
+  $thumbnail = array(
+    'width' 	=> '600',	// px
+    'height'	=> '400',	// px
+    'crop'		=> 1 		// false
+  );
+
+  // Image sizes
+  update_option( 'shop_catalog_image_size', $catalog ); 		// Product category thumbs
+  update_option( 'shop_single_image_size', $single ); 		// Single product image
+  update_option( 'shop_thumbnail_image_size', $thumbnail ); 	// Image gallery thumbs
+}
