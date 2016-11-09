@@ -607,3 +607,12 @@ function fig_woocommerce_image_dimensions() {
   update_option( 'shop_single_image_size', $single ); 		// Single product image
   update_option( 'shop_thumbnail_image_size', $thumbnail ); 	// Image gallery thumbs
 }
+
+/*
+ * No count on category listing
+ */
+add_filter( 'woocommerce_subcategory_count_html', 'fig_hide_category_count' );
+function fig_hide_category_count()
+{
+  // No count
+}
