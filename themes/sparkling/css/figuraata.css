@@ -36,7 +36,7 @@ p + ul {
 .woocommerce ul.products li.product h3 {
   text-align: center;
 }
-
+/*
 .woocommerce .main-content-inner {
   background: none !important;
   border: none !important;
@@ -50,4 +50,4 @@ p + ul {
   border: 1px solid #dadada !important;
   padding: 45px 50px;
   border-radius: 4px;
-}
+}*/
